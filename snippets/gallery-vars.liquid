@@ -1,7 +1,7 @@
 <style>
   /* ══════════════════════════════════════════════════
      CGSX GALLERY — CSS variable overrides
-     Source: gallery-design skill tokens
+     Source: shopify-production-skills / design.md
      ══════════════════════════════════════════════════ */
 
   :root,
@@ -12,62 +12,68 @@
   .color-scheme-5,
   .color-scheme-6,
   [class*="color-"] {
-    /* Core palette — gallery-design skill */
-    --color-background:                        rgb(12, 12, 12);
-    --color-background-rgb:                    12, 12, 12;
-    --color-foreground:                        rgb(232, 228, 220);   /* #e8e4dc */
-    --color-foreground-rgb:                    232, 228, 220;
-    --color-foreground-heading:                rgb(240, 236, 228);   /* #f0ece4 */
-    --color-foreground-heading-rgb:            240, 236, 228;
-    --color-primary:                           rgb(201, 169, 110);   /* #c9a96e */
-    --color-primary-rgb:                       201, 169, 110;
-    --color-primary-hover:                     rgb(168, 131, 61);    /* #a8833d — darker, not lighter */
-    --color-primary-hover-rgb:                 168, 131, 61;
-    --color-border:                            rgb(30, 30, 30);      /* #1e1e1e */
+    /* Canvas */
+    --color-background:                        rgb(8, 8, 8);
+    --color-background-rgb:                    8, 8, 8;
+
+    /* Text */
+    --color-foreground:                        rgb(154, 148, 144);   /* text-secondary #9a9490 */
+    --color-foreground-rgb:                    154, 148, 144;
+    --color-foreground-heading:                rgb(240, 237, 232);   /* text-primary #f0ede8 */
+    --color-foreground-heading-rgb:            240, 237, 232;
+
+    /* Accent */
+    --color-primary:                           rgb(201, 185, 154);   /* accent-primary #c9b99a */
+    --color-primary-rgb:                       201, 185, 154;
+    --color-primary-hover:                     rgb(221, 208, 184);   /* accent-hover #ddd0b8 — lighter */
+    --color-primary-hover-rgb:                 221, 208, 184;
+
+    /* Borders */
+    --color-border:                            rgb(30, 30, 30);      /* border-default #1e1e1e */
     --color-border-rgb:                        30, 30, 30;
     --color-shadow:                            rgb(0, 0, 0);
     --color-shadow-rgb:                        0, 0, 0;
 
-    /* Primary button — gradient matching component */
-    --color-primary-button-background:         rgb(201, 169, 110);
-    --color-primary-button-text:               rgb(12, 12, 12);
-    --color-primary-button-border:             rgb(201, 169, 110);
-    --color-primary-button-hover-background:   rgb(168, 131, 61);
-    --color-primary-button-hover-text:         rgb(12, 12, 12);
-    --color-primary-button-hover-border:       rgb(168, 131, 61);
+    /* Primary button — white bg, black text, hover to accent */
+    --color-primary-button-background:         rgb(255, 255, 255);
+    --color-primary-button-text:               rgb(8, 8, 8);
+    --color-primary-button-border:             rgb(255, 255, 255);
+    --color-primary-button-hover-background:   rgb(201, 185, 154);
+    --color-primary-button-hover-text:         rgb(8, 8, 8);
+    --color-primary-button-hover-border:       rgb(201, 185, 154);
 
-    /* Secondary button — transparent, gold border */
+    /* Secondary button — transparent, accent border */
     --color-secondary-button-background:       transparent;
-    --color-secondary-button-text:             rgb(201, 169, 110);
-    --color-secondary-button-border:           rgba(201, 169, 110, 0.4);
-    --color-secondary-button-hover-background: rgba(201, 169, 110, 0.04);
-    --color-secondary-button-hover-text:       rgb(201, 169, 110);
-    --color-secondary-button-hover-border:     rgb(201, 169, 110);
+    --color-secondary-button-text:             rgb(201, 185, 154);
+    --color-secondary-button-border:           rgba(201, 185, 154, 0.3);
+    --color-secondary-button-hover-background: rgba(201, 185, 154, 0.05);
+    --color-secondary-button-hover-text:       rgb(201, 185, 154);
+    --color-secondary-button-hover-border:     rgb(201, 185, 154);
 
     /* Inputs */
-    --color-input-background:                  rgba(255, 255, 255, 0.04);
-    --color-input-text:                        rgb(232, 228, 220);
-    --color-input-text-rgb:                    232, 228, 220;
-    --color-input-border:                      rgba(255, 255, 255, 0.1);
-    --color-input-hover-background:            rgba(255, 255, 255, 0.06);
+    --color-input-background:                  rgba(255, 255, 255, 0.03);
+    --color-input-text:                        rgb(240, 237, 232);
+    --color-input-text-rgb:                    240, 237, 232;
+    --color-input-border:                      rgb(30, 30, 30);
+    --color-input-hover-background:            rgba(255, 255, 255, 0.05);
 
-    /* Variant swatches */
+    /* Variants */
     --color-variant-background:                rgb(17, 17, 17);
-    --color-variant-text:                      rgb(232, 228, 220);
-    --color-variant-text-rgb:                  232, 228, 220;
-    --color-variant-border:                    rgba(255, 255, 255, 0.1);
+    --color-variant-text:                      rgb(240, 237, 232);
+    --color-variant-text-rgb:                  240, 237, 232;
+    --color-variant-border:                    rgb(30, 30, 30);
     --color-variant-hover-background:          rgb(26, 26, 26);
-    --color-variant-hover-text:                rgb(240, 236, 228);
-    --color-variant-hover-border:              rgba(201, 169, 110, 0.4);
-    --color-selected-variant-background:       rgb(201, 169, 110);
-    --color-selected-variant-text:             rgb(12, 12, 12);
-    --color-selected-variant-border:           rgb(201, 169, 110);
-    --color-selected-variant-hover-background: rgb(168, 131, 61);
-    --color-selected-variant-hover-text:       rgb(12, 12, 12);
-    --color-selected-variant-hover-border:     rgb(168, 131, 61);
+    --color-variant-hover-text:                rgb(240, 237, 232);
+    --color-variant-hover-border:              rgba(201, 185, 154, 0.3);
+    --color-selected-variant-background:       rgb(201, 185, 154);
+    --color-selected-variant-text:             rgb(8, 8, 8);
+    --color-selected-variant-border:           rgb(201, 185, 154);
+    --color-selected-variant-hover-background: rgb(221, 208, 184);
+    --color-selected-variant-hover-text:       rgb(8, 8, 8);
+    --color-selected-variant-hover-border:     rgb(221, 208, 184);
 
-    /* Font families */
-    --font-heading--family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    /* Fonts */
+    --font-heading--family: 'Cormorant Garamond', serif;
     --font-body--family:    'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-accent--family:  'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }

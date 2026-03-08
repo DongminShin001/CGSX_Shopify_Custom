@@ -7,7 +7,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h1>CGSX<br><em>Gallery.</em></h1>",
+            "text": "<h1>Original<br><em>Works</em></h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "center",
