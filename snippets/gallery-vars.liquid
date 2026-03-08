@@ -1,10 +1,9 @@
 <style>
   /* ══════════════════════════════════════════════════
-     GALLERY THEME — CSS variable overrides
-     Rendered after color-schemes.liquid so these win
+     CGSX GALLERY — CSS variable overrides
+     Source: gallery-design skill tokens
      ══════════════════════════════════════════════════ */
 
-  /* Override ALL color scheme classes + :root */
   :root,
   .color-scheme-1,
   .color-scheme-2,
@@ -13,21 +12,23 @@
   .color-scheme-5,
   .color-scheme-6,
   [class*="color-"] {
+    /* Core palette — gallery-design skill */
     --color-background:                        rgb(12, 12, 12);
     --color-background-rgb:                    12, 12, 12;
-    --color-foreground:                        rgb(232, 228, 220);
+    --color-foreground:                        rgb(232, 228, 220);   /* #e8e4dc */
     --color-foreground-rgb:                    232, 228, 220;
-    --color-foreground-heading:                rgb(240, 236, 228);
+    --color-foreground-heading:                rgb(240, 236, 228);   /* #f0ece4 */
     --color-foreground-heading-rgb:            240, 236, 228;
-    --color-primary:                           rgb(201, 169, 110);
+    --color-primary:                           rgb(201, 169, 110);   /* #c9a96e */
     --color-primary-rgb:                       201, 169, 110;
-    --color-primary-hover:                     rgb(232, 213, 176);
-    --color-primary-hover-rgb:                 232, 213, 176;
-    --color-border:                            rgb(30, 30, 30);
+    --color-primary-hover:                     rgb(168, 131, 61);    /* #a8833d — darker, not lighter */
+    --color-primary-hover-rgb:                 168, 131, 61;
+    --color-border:                            rgb(30, 30, 30);      /* #1e1e1e */
     --color-border-rgb:                        30, 30, 30;
     --color-shadow:                            rgb(0, 0, 0);
     --color-shadow-rgb:                        0, 0, 0;
 
+    /* Primary button — gradient matching component */
     --color-primary-button-background:         rgb(201, 169, 110);
     --color-primary-button-text:               rgb(12, 12, 12);
     --color-primary-button-border:             rgb(201, 169, 110);
@@ -35,26 +36,29 @@
     --color-primary-button-hover-text:         rgb(12, 12, 12);
     --color-primary-button-hover-border:       rgb(168, 131, 61);
 
+    /* Secondary button — transparent, gold border */
     --color-secondary-button-background:       transparent;
-    --color-secondary-button-text:             rgb(232, 228, 220);
-    --color-secondary-button-border:           rgb(58, 53, 48);
-    --color-secondary-button-hover-background: rgb(26, 22, 18);
+    --color-secondary-button-text:             rgb(201, 169, 110);
+    --color-secondary-button-border:           rgba(201, 169, 110, 0.4);
+    --color-secondary-button-hover-background: rgba(201, 169, 110, 0.04);
     --color-secondary-button-hover-text:       rgb(201, 169, 110);
     --color-secondary-button-hover-border:     rgb(201, 169, 110);
 
-    --color-input-background:                  rgb(17, 17, 17);
+    /* Inputs */
+    --color-input-background:                  rgba(255, 255, 255, 0.04);
     --color-input-text:                        rgb(232, 228, 220);
     --color-input-text-rgb:                    232, 228, 220;
-    --color-input-border:                      rgb(38, 38, 38);
-    --color-input-hover-background:            rgb(22, 22, 22);
+    --color-input-border:                      rgba(255, 255, 255, 0.1);
+    --color-input-hover-background:            rgba(255, 255, 255, 0.06);
 
+    /* Variant swatches */
     --color-variant-background:                rgb(17, 17, 17);
     --color-variant-text:                      rgb(232, 228, 220);
     --color-variant-text-rgb:                  232, 228, 220;
-    --color-variant-border:                    rgb(38, 38, 38);
+    --color-variant-border:                    rgba(255, 255, 255, 0.1);
     --color-variant-hover-background:          rgb(26, 26, 26);
     --color-variant-hover-text:                rgb(240, 236, 228);
-    --color-variant-hover-border:              rgb(58, 53, 48);
+    --color-variant-hover-border:              rgba(201, 169, 110, 0.4);
     --color-selected-variant-background:       rgb(201, 169, 110);
     --color-selected-variant-text:             rgb(12, 12, 12);
     --color-selected-variant-border:           rgb(201, 169, 110);
@@ -62,7 +66,7 @@
     --color-selected-variant-hover-text:       rgb(12, 12, 12);
     --color-selected-variant-hover-border:     rgb(168, 131, 61);
 
-    /* Override font families to Georgia/Helvetica Neue like the design */
+    /* Font families */
     --font-heading--family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     --font-body--family:    'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-accent--family:  'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
