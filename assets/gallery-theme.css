@@ -1,0 +1,336 @@
+/* ============================================================
+   GALLERY THEME — Art Gallery Dark Aesthetic
+   Layered on top of Horizon base theme
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+/* ---------- Root Overrides ---------- */
+:root {
+  --gallery-bg:          #0c0c0c;
+  --gallery-bg-2:        #111111;
+  --gallery-surface:     #1a1a1a;
+  --gallery-text:        #e8e4dc;
+  --gallery-text-muted:  #a09890;
+  --gallery-text-faint:  #525252;
+  --gallery-gold:        #c9a96e;
+  --gallery-gold-hover:  #a8833d;
+  --gallery-border:      #1e1e1e;
+  --gallery-border-soft: #262626;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ---------- Base ---------- */
+body {
+  background-color: var(--gallery-bg);
+  color: var(--gallery-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, .h1, .h2, .h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--gallery-text);
+}
+
+h4, h5, h6, .h4, .h5, .h6 {
+  font-family: var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* ---------- Header ---------- */
+.header,
+header-component {
+  background: transparent !important;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.header--scrolled,
+header-component.scrolled {
+  background: rgba(12, 12, 12, 0.96) !important;
+  border-bottom-color: var(--gallery-border) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.header__heading-link,
+.header__menu-item,
+.header__icon {
+  color: var(--gallery-text-muted);
+  transition: color 0.25s ease;
+}
+
+.header__heading-link:hover,
+.header__menu-item:hover,
+.header__icon:hover {
+  color: var(--gallery-text);
+}
+
+.header__heading-logo,
+.header__heading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gallery-text);
+}
+
+/* ---------- Nav links ---------- */
+.header__menu-item {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ---------- Product / Art Cards ---------- */
+.card-wrapper,
+.product-card-wrapper {
+  background: transparent;
+}
+
+.card {
+  background: transparent;
+  border: none;
+  overflow: hidden;
+}
+
+.card__media,
+.card__media img {
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .card__media img,
+.card-wrapper:hover .card__media img {
+  transform: scale(1.06);
+}
+
+.card__content {
+  padding: 1rem 0 0;
+  background: transparent;
+}
+
+.card__heading,
+.card__heading a {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--gallery-text);
+  letter-spacing: 0.02em;
+}
+
+.card__heading a:hover {
+  color: var(--gallery-gold);
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gallery-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Sold out badge */
+.badge--sold-out,
+.badge {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(12, 12, 12, 0.85);
+  color: var(--gallery-text-muted);
+  border: 1px solid var(--gallery-border-soft);
+  border-radius: 0;
+}
+
+/* ---------- Buttons ---------- */
+.button,
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.button--primary,
+.btn--primary {
+  background: var(--gallery-gold);
+  color: var(--gallery-bg);
+  border-color: var(--gallery-gold);
+}
+
+.button--primary:hover,
+.btn--primary:hover {
+  background: var(--gallery-gold-hover);
+  border-color: var(--gallery-gold-hover);
+}
+
+.button--secondary,
+.btn--secondary {
+  background: transparent;
+  color: var(--gallery-text);
+  border: 1px solid var(--gallery-border-soft);
+}
+
+.button--secondary:hover,
+.btn--secondary:hover {
+  border-color: var(--gallery-gold);
+  color: var(--gallery-gold);
+}
+
+/* ---------- Cart Drawer ---------- */
+cart-drawer,
+.cart-drawer {
+  background: var(--gallery-bg-2);
+  border-left: 1px solid var(--gallery-border);
+}
+
+.cart-drawer__header {
+  border-bottom: 1px solid var(--gallery-border);
+}
+
+.cart-items td,
+.cart-item {
+  border-bottom: 1px solid var(--gallery-border);
+}
+
+/* ---------- Collection Grid (Gallery Style) ---------- */
+.product-grid {
+  gap: 1rem;
+}
+
+@media (min-width: 750px) {
+  .product-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* ---------- Hero / Slideshow ---------- */
+.hero__content,
+.slideshow__text-content {
+  background: transparent;
+}
+
+.hero__heading,
+.slideshow__heading {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.hero__subheading,
+.slideshow__subheading {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Section headings ---------- */
+.section-header__title,
+.collection-hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--gallery-bg-2);
+  border-top: 1px solid var(--gallery-border);
+  color: var(--gallery-text-muted);
+}
+
+.footer__heading {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gallery-text-faint);
+}
+
+.footer a {
+  color: var(--gallery-text-muted);
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--gallery-gold);
+}
+
+/* ---------- Inputs / Forms ---------- */
+input,
+textarea,
+select {
+  background: var(--gallery-bg-2);
+  border-color: var(--gallery-border-soft);
+  color: var(--gallery-text);
+  border-radius: 0;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--gallery-gold);
+  outline: none;
+  box-shadow: 0 0 0 1px var(--gallery-gold);
+}
+
+/* ---------- Breadcrumbs / Links ---------- */
+a {
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--gallery-gold);
+}
+
+/* ---------- Divider / gold line accent ---------- */
+.section-divider {
+  width: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gallery-gold), transparent);
+  margin: 0 auto 2rem;
+}
+
+/* ---------- Page transitions (fade) ---------- */
+@keyframes galleryFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.content-for-layout {
+  animation: galleryFadeIn 0.4s ease-out;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gallery-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gallery-border-soft);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gallery-gold);
+}
