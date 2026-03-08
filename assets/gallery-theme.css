@@ -63,52 +63,26 @@ p, li, label, td, th {
 }
 
 /* ══ PRODUCT IMAGES — CRITICAL FIX ══════════════════════════
-   Horizon uses .card-gallery > slideshow > .product-media-container > img
-   Never hide or dim product images
+   Horizon: .card-gallery → <slideshow> → .product-media → img.product-media__image
+   .product-media uses aspect-ratio for sizing — never override width/height on img,
+   as height:100% doesn't resolve through aspect-ratio and collapses the image.
    ══════════════════════════════════════════════════════════ */
 .card-gallery img,
-.card-gallery .product-media-container img,
-.card-gallery media-image img,
-.card-gallery .media img,
-[class*="product-media"] img,
-.product-card img,
-product-card img,
-.resource-card img {
+.product-media img,
+.product-media__image {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
-  width: 100% !important;
-  height: 100% !important;
   object-fit: cover !important;
+  object-position: center !important;
+  /* NO width/height overrides — let Horizon's aspect-ratio container handle sizing */
 }
 
-/* Card gallery wrapper */
+/* Card gallery wrapper — background shows only before image loads */
 .card-gallery {
-  background: #111111 !important;
+  background: #111111;
   overflow: hidden;
   position: relative;
-}
-
-/* Image zoom on hover via card_hover_effect in settings */
-.card-gallery .product-media-container {
-  transition: transform .7s ease-out !important;
-  overflow: hidden !important;
-}
-
-/* Hover overlay on card-gallery */
-.card-gallery::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0);
-  transition: background .5s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-product-card:hover .card-gallery::after,
-.product-card:hover .card-gallery::after {
-  background: rgba(0,0,0,.25);
 }
 
 /* "View Piece" overlay button — slides up */
@@ -514,7 +488,8 @@ input::placeholder, textarea::placeholder { color: #2a2828 !important; }
   font-weight: 300 !important;
 }
 
-.product__media-wrapper, [class*="product-media"] { background: #111111 !important; }
+/* Only the product detail page media wrapper gets the dark bg — NOT card thumbnails */
+.product__media-wrapper { background: #111111 !important; }
 
 .product__info-table td {
   border-bottom: 1px solid #161616 !important;
