@@ -5,36 +5,25 @@
      ══════════════════════════════════════════════════ */
 
   :root,
-  .color-scheme-1,
-  .color-scheme-2,
-  .color-scheme-3,
-  .color-scheme-4,
-  .color-scheme-5,
-  .color-scheme-6,
+  .color-scheme-1, .color-scheme-2, .color-scheme-3,
+  .color-scheme-4, .color-scheme-5, .color-scheme-6,
   [class*="color-"] {
-    /* Canvas */
     --color-background:                        rgb(8, 8, 8);
     --color-background-rgb:                    8, 8, 8;
-
-    /* Text */
-    --color-foreground:                        rgb(154, 148, 144);   /* text-secondary #9a9490 */
+    --color-foreground:                        rgb(154, 148, 144);
     --color-foreground-rgb:                    154, 148, 144;
-    --color-foreground-heading:                rgb(240, 237, 232);   /* text-primary #f0ede8 */
+    --color-foreground-heading:                rgb(240, 237, 232);
     --color-foreground-heading-rgb:            240, 237, 232;
-
-    /* Accent */
-    --color-primary:                           rgb(201, 185, 154);   /* accent-primary #c9b99a */
+    --color-primary:                           rgb(201, 185, 154);
     --color-primary-rgb:                       201, 185, 154;
-    --color-primary-hover:                     rgb(221, 208, 184);   /* accent-hover #ddd0b8 — lighter */
+    --color-primary-hover:                     rgb(221, 208, 184);
     --color-primary-hover-rgb:                 221, 208, 184;
-
-    /* Borders */
-    --color-border:                            rgb(30, 30, 30);      /* border-default #1e1e1e */
+    --color-border:                            rgb(30, 30, 30);
     --color-border-rgb:                        30, 30, 30;
     --color-shadow:                            rgb(0, 0, 0);
     --color-shadow-rgb:                        0, 0, 0;
 
-    /* Primary button — white bg, black text, hover to accent */
+    /* Primary button — white → accent on hover */
     --color-primary-button-background:         rgb(255, 255, 255);
     --color-primary-button-text:               rgb(8, 8, 8);
     --color-primary-button-border:             rgb(255, 255, 255);
@@ -42,11 +31,11 @@
     --color-primary-button-hover-text:         rgb(8, 8, 8);
     --color-primary-button-hover-border:       rgb(201, 185, 154);
 
-    /* Secondary button — transparent, accent border */
+    /* Secondary button */
     --color-secondary-button-background:       transparent;
     --color-secondary-button-text:             rgb(201, 185, 154);
-    --color-secondary-button-border:           rgba(201, 185, 154, 0.3);
-    --color-secondary-button-hover-background: rgba(201, 185, 154, 0.05);
+    --color-secondary-button-border:           rgba(201, 185, 154, 0.35);
+    --color-secondary-button-hover-background: rgba(201, 185, 154, 0.06);
     --color-secondary-button-hover-text:       rgb(201, 185, 154);
     --color-secondary-button-hover-border:     rgb(201, 185, 154);
 
@@ -76,5 +65,25 @@
     --font-heading--family: 'Cormorant Garamond', serif;
     --font-body--family:    'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-accent--family:  'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  /* Product list section — bicycle-art.jpg background */
+  .shopify-section:has([data-section-type="product-list"]),
+  .section-product-list-fa6P9H,
+  #shopify-section-product_list_fa6P9H {
+    position: relative;
+  }
+
+  .shopify-section:has([data-section-type="product-list"])::before,
+  #shopify-section-product_list_fa6P9H::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ "bicycle-art.jpg" | asset_url }}');
+    background-size: cover;
+    background-position: center;
+    opacity: .04;
+    pointer-events: none;
+    z-index: 0;
   }
 </style>

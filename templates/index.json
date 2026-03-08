@@ -3,6 +3,32 @@
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
+        "eyebrow_cgsx": {
+          "type": "text",
+          "name": "Eyebrow",
+          "settings": {
+            "text": "<p>New Collection — 2025</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.7rem",
+            "line_height": "normal",
+            "letter_spacing": "0.45em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "#c9b99a",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "text_YLPk4p": {
           "type": "text",
           "name": "t:names.heading",
@@ -10,15 +36,15 @@
             "text": "<h1>Original<br><em>Works</em></h1>",
             "width": "fit-content",
             "max_width": "normal",
-            "alignment": "center",
+            "alignment": "left",
             "type_preset": "h1",
             "font": "var(--font-heading--family)",
-            "font_size": "clamp(3.5rem, 9vw, 6rem)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
+            "font_size": "clamp(4rem, 10vw, 9rem)",
+            "line_height": "0.92",
+            "letter_spacing": "-0.03em",
             "case": "none",
             "wrap": "pretty",
-            "color": "#f0ece4",
+            "color": "#ffffff",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -33,10 +59,10 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "View Collection",
+            "label": "Explore Collection →",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
-            "style_class": "button-primary",
+            "style_class": "button-secondary",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
@@ -45,10 +71,7 @@
           "blocks": {}
         }
       },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
+      "block_order": ["eyebrow_cgsx", "text_YLPk4p", "button_H9gpTf"],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
@@ -60,13 +83,13 @@
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
+        "horizontal_alignment": "flex-start",
         "vertical_alignment": "flex-end",
         "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
-        "section_width": "page-width",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 20,
+        "section_width": "full-width",
         "section_height": "full-screen",
         "section_height_custom": 50,
         "color_scheme": "scheme-1",
@@ -78,6 +101,33 @@
         "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 120
+      }
+    },
+    "marquee_cgsx": {
+      "type": "marquee",
+      "blocks": {
+        "marquee_text_1": {
+          "type": "text",
+          "settings": {
+            "text": "Original Works · Certificate of Authenticity · White-Glove Delivery · Private Viewings · Art Advisory · Global Shipping · CGSX Gallery · Investment Grade Art · Seoul & New York"
+          }
+        }
+      },
+      "block_order": ["marquee_text_1"],
+      "name": "Marquee",
+      "settings": {
+        "speed": 40,
+        "pause_on_hover": true,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "stats_cgsx": {
+      "type": "custom-liquid",
+      "name": "Gallery Stats",
+      "settings": {
+        "custom_liquid": "<div class=\"gallery-stats\"><div class=\"gallery-stats__grid\"><div><div class=\"gallery-stats__number\">240+</div><div class=\"gallery-stats__label\">Original Works</div></div><div><div class=\"gallery-stats__number\">48</div><div class=\"gallery-stats__label\">Represented Artists</div></div><div><div class=\"gallery-stats__number\">$2.4M</div><div class=\"gallery-stats__label\">Works Sold</div></div><div><div class=\"gallery-stats__number\">12</div><div class=\"gallery-stats__label\">Countries</div></div></div></div>"
       }
     },
     "product_list_fa6P9H": {
@@ -119,20 +169,20 @@
           "blocks": {
             "product_list_text_YFtzcL": {
               "type": "_product-list-text",
-              "name": "t:names.collection_title",
+              "name": "Collection title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<p class=\"gallery-eyebrow\">Selected Works</p><h2>Current Exhibition</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
+                "type_preset": "rte",
+                "font": "var(--font-heading--family)",
                 "font_size": "",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
+                "color": "var(--color-foreground-heading)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -145,9 +195,9 @@
             },
             "product_list_button_MWeP9V": {
               "type": "_product-list-button",
-              "name": "t:names.product_list_button",
+              "name": "View all button",
               "settings": {
-                "label": "View all",
+                "label": "View All Works →",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",
@@ -158,10 +208,7 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+          "block_order": ["product_list_text_YFtzcL", "product_list_button_MWeP9V"]
         },
         "static-product-card": {
           "type": "_product-card",
@@ -183,9 +230,9 @@
           "blocks": {
             "product_card_gallery_677WP3": {
               "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
+              "name": "Product image",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -199,19 +246,19 @@
             },
             "product_title_YXxMTj": {
               "type": "product-title",
-              "name": "t:names.product_title",
+              "name": "Product title",
               "settings": {
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.2rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
+                "color": "var(--color-foreground-heading)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -224,21 +271,21 @@
             },
             "price_JQzVV4": {
               "type": "price",
-              "name": "t:names.product_price",
+              "name": "Price",
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "rte",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.9rem",
                 "line_height": "normal",
-                "letter_spacing": "normal",
+                "letter_spacing": "0.05em",
                 "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
+                "color": "var(--color-primary)",
+                "padding-block-start": 4,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -246,37 +293,64 @@
               "blocks": {}
             }
           },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+          "block_order": ["product_card_gallery_677WP3", "product_title_YXxMTj", "price_JQzVV4"]
         }
       },
-      "name": "Featured collection",
+      "name": "Featured Collection",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 8,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 2,
-        "rows_gap": 2,
+        "mobile_card_size": "55cqw",
+        "columns_gap": 3,
+        "rows_gap": 3,
         "icons_style": "arrow",
         "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "flex-start",
-        "gap": 28,
+        "gap": 32,
         "color_scheme": "scheme-1",
-        "padding-block-start": 80,
-        "padding-block-end": 80
+        "padding-block-start": 96,
+        "padding-block-end": 96
+      }
+    },
+    "services_cgsx": {
+      "type": "custom-liquid",
+      "name": "Services",
+      "settings": {
+        "custom_liquid": "<div style=\"padding:96px 5vw;max-width:1200px;margin:0 auto\"><div style=\"text-align:center;margin-bottom:64px\"><span class=\"gallery-eyebrow\">The CGSX Experience</span><h2 style=\"font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#f0ede8;letter-spacing:-.02em;margin:0\">Beyond the Transaction</h2></div><div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px\"><div><div style=\"font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,185,154,.25);font-weight:300;margin-bottom:16px\">I</div><div style=\"width:24px;height:1px;background:#c9b99a;margin-bottom:16px\"></div><div style=\"font-size:1rem;color:#f0ede8;margin-bottom:10px;font-family:'Cormorant Garamond',serif\">Private Advisory</div><div style=\"font-size:.9rem;color:#4a4845;line-height:1.9;font-family:'DM Sans',sans-serif\">Our curators work one-on-one with collectors to identify works that align with their vision and portfolio.</div></div><div><div style=\"font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,185,154,.25);font-weight:300;margin-bottom:16px\">II</div><div style=\"width:24px;height:1px;background:#c9b99a;margin-bottom:16px\"></div><div style=\"font-size:1rem;color:#f0ede8;margin-bottom:10px;font-family:'Cormorant Garamond',serif\">White-Glove Delivery</div><div style=\"font-size:.9rem;color:#4a4845;line-height:1.9;font-family:'DM Sans',sans-serif\">Every piece is professionally packed, insured, and installed by our specialist team worldwide.</div></div><div><div style=\"font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(201,185,154,.25);font-weight:300;margin-bottom:16px\">III</div><div style=\"width:24px;height:1px;background:#c9b99a;margin-bottom:16px\"></div><div style=\"font-size:1rem;color:#f0ede8;margin-bottom:10px;font-family:'Cormorant Garamond',serif\">Provenance & Authentication</div><div style=\"font-size:.9rem;color:#4a4845;line-height:1.9;font-family:'DM Sans',sans-serif\">Each work arrives with a full certificate of authenticity and complete provenance documentation.</div></div></div></div>"
+      }
+    },
+    "marquee2_cgsx": {
+      "type": "marquee",
+      "blocks": {
+        "marquee_text_2": {
+          "type": "text",
+          "settings": {
+            "text": "Certificate of Authenticity · White-Glove Delivery · Private Advisory · Seoul · New York · Art Investment · CGSX Gallery 2025"
+          }
+        }
+      },
+      "block_order": ["marquee_text_2"],
+      "name": "Marquee 2",
+      "settings": {
+        "speed": 30,
+        "pause_on_hover": true,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
   "order": [
     "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "marquee_cgsx",
+    "stats_cgsx",
+    "product_list_fa6P9H",
+    "services_cgsx",
+    "marquee2_cgsx"
   ]
 }
