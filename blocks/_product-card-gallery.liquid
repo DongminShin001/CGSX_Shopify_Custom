@@ -4,6 +4,17 @@
 
 {% capture children %}
   {% unless product == blank %}
+    {%- if product.type != blank -%}
+      <div class="gallery-type-badge">{{ product.type }}</div>
+    {%- endif -%}
+    <div class="gallery-card-overlay">
+      <div class="gallery-card-overlay__inner">
+        <p class="gallery-card-overlay__title">{{ product.title }}</p>
+        <p class="gallery-card-overlay__price">
+          {{- product.price | money -}}
+        </p>
+      </div>
+    </div>
     <div
       class="product-badges product-badges--{{ settings.badge_position }}"
       style="
