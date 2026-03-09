@@ -719,6 +719,29 @@ dialog, .modal { background: #111111 !important; border: 1px solid #1e1e1e !impo
   color: #4a4845;
 }
 
+/* ══ BLOCK TEXT EYEBROWS (no class/style allowed in block text settings) ═════ */
+/* product.json artist eyebrow block — vendor <p> */
+[data-block-type="text"] p,
+.product-information__content p:first-child {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #c9b99a;
+  margin: 0 0 4px;
+}
+
+/* index.json product-list header <h6> eyebrow */
+[data-section-type="product-list"] h6,
+.section-product-list h6 {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: .7rem !important;
+  letter-spacing: .4em !important;
+  text-transform: uppercase !important;
+  color: #c9b99a !important;
+  margin: 0 0 8px !important;
+}
+
 /* ══ DIVIDERS & EYEBROWS ════════════════════════════════════ */
 .gallery-divider {
   width: 2rem;

@@ -171,7 +171,7 @@
               "type": "_product-list-text",
               "name": "Collection title",
               "settings": {
-                "text": "<p style=\"font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:#c9b99a\">Selected Works</p><h2>Current Exhibition</h2>",
+                "text": "<h6>Selected Works</h6><h2>Current Exhibition</h2>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
