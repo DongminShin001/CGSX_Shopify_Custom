@@ -62,32 +62,70 @@ p, li, label, td, th {
   background-color: #080808 !important;
 }
 
-/* ══ PRODUCT IMAGES — CRITICAL FIX ══════════════════════════
-   Horizon uses <card-gallery> custom element (not .card-gallery class).
-   Target both element and class selectors. Never override width/height
-   on img — aspect-ratio container handles sizing.
-   ══════════════════════════════════════════════════════════ */
-card-gallery img,
-.card-gallery img,
-.product-media img,
-.product-media__image,
-[class*="card-gallery"] img,
-product-card img {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  max-width: 100% !important;
-}
+/* ══ PRODUCT CARD GALLERY — IMAGE FIX ═══════════════════════
+   The card-gallery is a div with overflow:hidden.
+   Its children are slideshow custom elements (display:inline by default).
+   Without explicit height on each level the whole chain collapses to 0
+   and overflow:hidden hides everything — only the text below shows.
 
-/* Card gallery wrapper — background shows only before image loads */
+   Fix: give card-gallery a defined height via aspect-ratio, then cascade
+   height:100% through every custom element level down to the img.
+   ══════════════════════════════════════════════════════════ */
+
+/* 1 — The card gallery wrapper gets its height from aspect-ratio */
 card-gallery,
 .card-gallery {
   background: #111111;
   overflow: hidden;
   position: relative;
   display: block;
+  aspect-ratio: var(--gallery-aspect-ratio, 4 / 5);
+}
+
+/* 2 — Every slideshow custom element must fill 100% of card-gallery */
+card-gallery slideshow-component,
+.card-gallery slideshow-component,
+card-gallery slideshow-container,
+.card-gallery slideshow-container,
+card-gallery slideshow-slides,
+.card-gallery slideshow-slides,
+card-gallery slideshow-slide,
+.card-gallery slideshow-slide {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 3 — Product media containers fill the slide */
+card-gallery .product-media-container,
+.card-gallery .product-media-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 4 — .product-media inside card-gallery: override its own aspect-ratio
+        so it fills the slide instead of sizing itself independently */
+card-gallery .product-media,
+.card-gallery .product-media {
+  aspect-ratio: unset !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+/* 5 — Image fills the container */
+card-gallery img,
+.card-gallery img,
+[class*="card-gallery"] img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-width: none !important;
 }
 
 /* "View Piece" overlay button — slides up */
