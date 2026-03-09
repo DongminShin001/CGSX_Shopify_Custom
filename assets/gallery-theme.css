@@ -63,26 +63,31 @@ p, li, label, td, th {
 }
 
 /* ══ PRODUCT IMAGES — CRITICAL FIX ══════════════════════════
-   Horizon: .card-gallery → <slideshow> → .product-media → img.product-media__image
-   .product-media uses aspect-ratio for sizing — never override width/height on img,
-   as height:100% doesn't resolve through aspect-ratio and collapses the image.
+   Horizon uses <card-gallery> custom element (not .card-gallery class).
+   Target both element and class selectors. Never override width/height
+   on img — aspect-ratio container handles sizing.
    ══════════════════════════════════════════════════════════ */
+card-gallery img,
 .card-gallery img,
 .product-media img,
-.product-media__image {
+.product-media__image,
+[class*="card-gallery"] img,
+product-card img {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
   object-fit: cover !important;
   object-position: center !important;
-  /* NO width/height overrides — let Horizon's aspect-ratio container handle sizing */
+  max-width: 100% !important;
 }
 
 /* Card gallery wrapper — background shows only before image loads */
+card-gallery,
 .card-gallery {
   background: #111111;
   overflow: hidden;
   position: relative;
+  display: block;
 }
 
 /* "View Piece" overlay button — slides up */

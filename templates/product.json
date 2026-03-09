@@ -108,7 +108,7 @@
                   "type": "text",
                   "name": "Artist eyebrow",
                   "settings": {
-                    "text": "{% if closest.product.vendor != blank %}<span style=\"font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:#c9b99a\">{{ closest.product.vendor }}{% if closest.product.type != blank %} &middot; {{ closest.product.type }}{% endif %}</span>{% endif %}",
+                    "text": "{% if product.vendor != blank %}<p style=\"font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:#c9b99a;margin:0\">{{ product.vendor }}{% if product.type != blank %} &middot; {{ product.type }}{% endif %}</p>{% endif %}",
                     "width": "100%", "max_width": "normal", "alignment": "left",
                     "type_preset": "rte", "font": "var(--font-body--family)",
                     "font_size": "", "line_height": "normal", "letter_spacing": "normal",
