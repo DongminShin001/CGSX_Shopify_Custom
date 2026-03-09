@@ -109,7 +109,7 @@
         "marquee_text_1": {
           "type": "text",
           "settings": {
-            "text": "Original Works · Certificate of Authenticity · White-Glove Delivery · Private Viewings · Art Advisory · Global Shipping · CGSX Gallery · Investment Grade Art · Seoul & New York"
+            "text": "<p>Original Works · Certificate of Authenticity · White-Glove Delivery · Private Viewings · Art Advisory · Global Shipping · CGSX Gallery · Investment Grade Art · Seoul & New York</p>"
           }
         }
       },
@@ -330,7 +330,7 @@
         "marquee_text_2": {
           "type": "text",
           "settings": {
-            "text": "Certificate of Authenticity · White-Glove Delivery · Private Advisory · Seoul · New York · Art Investment · CGSX Gallery 2025"
+            "text": "<p>Certificate of Authenticity · White-Glove Delivery · Private Advisory · Seoul · New York · Art Investment · CGSX Gallery 2025</p>"
           }
         }
       },

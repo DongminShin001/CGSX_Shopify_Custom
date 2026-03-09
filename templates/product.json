@@ -105,43 +105,18 @@
               },
               "blocks": {
                 "artist_eyebrow_cgsx": {
-                  "type": "text",
+                  "type": "custom-liquid",
                   "name": "Artist eyebrow",
                   "settings": {
-                    "text": "{% if product.vendor != blank %}<p>{{ product.vendor }}</p>{% endif %}",
-                    "width": "100%", "max_width": "normal", "alignment": "left",
-                    "type_preset": "rte", "font": "var(--font-body--family)",
-                    "font_size": "", "line_height": "normal", "letter_spacing": "normal",
-                    "case": "none", "wrap": "pretty", "color": "", "background": false,
-                    "background_color": "#00000026", "corner_radius": 0,
-                    "padding-block-start": 0, "padding-block-end": 0,
-                    "padding-inline-start": 0, "padding-inline-end": 0
+                    "custom_liquid": "{% if product.vendor != blank %}<p>{{ product.vendor }}</p>{% endif %}"
                   },
                   "blocks": {}
                 },
                 "text_xrnftG": {
-                  "type": "text",
+                  "type": "custom-liquid",
                   "name": "Product title",
                   "settings": {
-                    "text": "<h1>{{ closest.product.title }}</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h3",
-                    "font": "var(--font-primary--family)",
-                    "font_size": "",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "custom_liquid": "<h1>{{ product.title }}</h1>"
                   },
                   "blocks": {}
                 },
@@ -234,28 +209,10 @@
               "block_order": []
             },
             "text_aEtTtq": {
-              "type": "text",
+              "type": "custom-liquid",
               "name": "Product description",
               "settings": {
-                "text": "{{ closest.product.description }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "custom_liquid": "{{ product.description }}"
               },
               "blocks": {}
             },
