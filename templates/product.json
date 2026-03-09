@@ -104,6 +104,21 @@
                 "padding-inline-end": 0
               },
               "blocks": {
+                "artist_eyebrow_cgsx": {
+                  "type": "text",
+                  "name": "Artist eyebrow",
+                  "settings": {
+                    "text": "{% if closest.product.vendor != blank %}<span style=\"font-family:'DM Sans',sans-serif;font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:#c9b99a\">{{ closest.product.vendor }}{% if closest.product.type != blank %} &middot; {{ closest.product.type }}{% endif %}</span>{% endif %}",
+                    "width": "100%", "max_width": "normal", "alignment": "left",
+                    "type_preset": "rte", "font": "var(--font-body--family)",
+                    "font_size": "", "line_height": "normal", "letter_spacing": "normal",
+                    "case": "none", "wrap": "pretty", "color": "", "background": false,
+                    "background_color": "#00000026", "corner_radius": 0,
+                    "padding-block-start": 0, "padding-block-end": 0,
+                    "padding-inline-start": 0, "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
                 "text_xrnftG": {
                   "type": "text",
                   "name": "Product title",
@@ -154,6 +169,7 @@
                 }
               },
               "block_order": [
+                "artist_eyebrow_cgsx",
                 "text_xrnftG",
                 "price_tVjtKg"
               ]
@@ -242,6 +258,20 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "artwork_details_cgsx": {
+              "type": "custom-liquid",
+              "name": "Artwork Details",
+              "settings": {
+                "custom_liquid": "{% liquid\n  assign p = closest.product\n  assign medium = p.metafields.custom.medium\n  assign dimensions = p.metafields.custom.dimensions\n  assign year = p.metafields.custom.year\n%}<div class=\"artwork-details-table\"><div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Artist</span><span class=\"artwork-details-table__value\">{{ p.vendor }}</span></div>{% if medium %}<div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Medium</span><span class=\"artwork-details-table__value\">{{ medium }}</span></div>{% endif %}{% if dimensions %}<div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Dimensions</span><span class=\"artwork-details-table__value\">{{ dimensions }}</span></div>{% endif %}{% if year %}<div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Year</span><span class=\"artwork-details-table__value\">{{ year }}</span></div>{% endif %}<div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Category</span><span class=\"artwork-details-table__value\">{{ p.type | default: 'Original Work' }}</span></div><div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Availability</span><span class=\"artwork-details-table__value\">{% if p.available %}Available{% else %}Sold Out{% endif %}</span></div><div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Shipping</span><span class=\"artwork-details-table__value\">White-Glove Worldwide</span></div><div class=\"artwork-details-table__row\"><span class=\"artwork-details-table__label\">Certificate</span><span class=\"artwork-details-table__value\">Included</span></div></div>"
+              }
+            },
+            "investment_note_cgsx": {
+              "type": "custom-liquid",
+              "name": "Investment Note",
+              "settings": {
+                "custom_liquid": "<div class=\"investment-note\"><div class=\"investment-note__label\">Investment Note</div><p class=\"investment-note__text\">Works by this artist have historically appreciated in value. A certificate of authenticity and full provenance documentation are included with every acquisition. Advisory services available upon request.</p></div>"
+              }
             }
           },
           "block_order": [
@@ -249,7 +279,9 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "artwork_details_cgsx",
+            "investment_note_cgsx"
           ]
         }
       },

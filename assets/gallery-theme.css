@@ -740,6 +740,152 @@ dialog, .modal { background: #111111 !important; border: 1px solid #1e1e1e !impo
   border-radius: 0 !important;
 }
 
+/* ══ ARTWORK DETAILS TABLE ═══════════════════════════════════ */
+.artwork-details-table {
+  border-top: 1px solid #1e1e1e;
+  margin-top: 8px;
+}
+.artwork-details-table__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 12px;
+}
+.artwork-details-table__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #333;
+  flex-shrink: 0;
+}
+.artwork-details-table__value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #a09890;
+  text-align: right;
+}
+
+/* ══ INVESTMENT NOTE ══════════════════════════════════════════ */
+.investment-note {
+  margin-top: 16px;
+  padding: 18px 20px;
+  border: 1px solid rgba(201,185,154,0.15);
+  background: rgba(201,185,154,0.02);
+}
+.investment-note__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c9b99a;
+  margin-bottom: 8px;
+}
+.investment-note__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ══ PRODUCT VENDOR (Artist) ══════════════════════════════════ */
+.product__vendor, [class*="product-vendor"] {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #555 !important;
+  margin-bottom: 4px !important;
+}
+
+/* ══ PROVENANCE PAGE ══════════════════════════════════════════ */
+.provenance-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+}
+.provenance-page__inner {
+  width: 100%;
+  max-width: 520px;
+}
+.provenance-form-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 40px;
+}
+.provenance-field {
+  margin-bottom: 24px;
+}
+.provenance-label {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 10px;
+}
+.provenance-input {
+  width: 100% !important;
+  padding: 14px 16px !important;
+  font-size: 0.9rem !important;
+}
+.provenance-cta {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #c9b99a 0%, #a8833d 100%);
+  color: #080808 !important;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 8px;
+  transition: opacity 0.25s;
+}
+.provenance-cta:hover { opacity: 0.85; }
+.provenance-note {
+  font-size: 0.75rem !important;
+  color: #333 !important;
+  text-align: center;
+  margin: 16px 0 0 !important;
+  line-height: 1.8 !important;
+}
+
+/* ══ ACCOUNT / ORDER HISTORY ══════════════════════════════════ */
+.account-page, [class*="account"] .page-width {
+  background: #080808 !important;
+}
+.orders-table, [class*="order-table"] {
+  border-collapse: collapse;
+  width: 100%;
+}
+.orders-table th {
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #333 !important;
+  border-bottom: 1px solid #1e1e1e !important;
+  padding: 12px 0 !important;
+  font-weight: 400 !important;
+}
+.orders-table td {
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  padding: 14px 0 !important;
+  font-size: 0.9rem !important;
+  color: #9a9490 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.orders-table a { color: #c9b99a !important; }
+
 /* ══ RESPONSIVE ══════════════════════════════════════════════ */
 @media (max-width: 749px) {
   body { font-size: 15px !important; }

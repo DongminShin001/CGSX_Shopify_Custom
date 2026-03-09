@@ -1,0 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */{
+  "sections": {
+    "provenance_main": {
+      "type": "custom-liquid",
+      "name": "Provenance / Order Tracking",
+      "settings": {
+        "custom_liquid": "<div class=\"provenance-page\"><div class=\"provenance-page__inner\"><div class=\"gallery-eyebrow\" style=\"text-align:center\">Collector Services</div><h1 style=\"font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:300;color:#f0ede8;text-align:center;margin:0 0 12px;letter-spacing:-.02em\">Track Acquisition</h1><div class=\"gallery-divider\"></div><p style=\"color:#4a4845;font-size:.9rem;text-align:center;margin:24px 0 48px;font-family:'DM Sans',sans-serif;line-height:2\">Enter your details below to view the status of your acquisition and shipping information.</p><div class=\"provenance-form-card\"><div class=\"provenance-field\"><label class=\"provenance-label\">Email Address</label><input type=\"email\" placeholder=\"collector@example.com\" class=\"provenance-input\" /></div><div class=\"provenance-field\"><label class=\"provenance-label\">Order Reference</label><input type=\"text\" placeholder=\"#1001\" class=\"provenance-input\" /></div><a href=\"/account/login\" class=\"provenance-cta\">View Your Orders →</a><p class=\"provenance-note\">You can also <a href=\"/account/login\" style=\"color:#c9b99a\">sign in to your account</a> to view all past acquisitions and shipping details.</p></div></div></div>"
+      }
+    }
+  },
+  "order": ["provenance_main"]
+}
