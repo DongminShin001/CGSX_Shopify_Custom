@@ -1,0 +1,172 @@
+<cart-items-component
+  class="cart-items-component"
+  data-section-id="{{ section.id }}"
+>
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div
+    class="section color-{{ section.settings.color_scheme }} section--{{ section.settings.section_width }}"
+  >
+    <div
+      class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
+      style="{% render 'spacing-style', settings: section.settings %}"
+    >
+      <div class="cart-page__title">
+        {%- content_for 'block', id: 'cart-page-title', type: '_cart-title' %}
+      </div>
+
+      <div class="cart-page__items">
+        {%- content_for 'block', id: 'cart-page-items', type: '_cart-products' %}
+      </div>
+
+      {%- unless cart.empty? -%}
+        {%- comment -%} 
+          MOVED OUTSIDE SUMMARY: This prevents the 'subgrid' from breaking 
+          while keeping the address above the checkout buttons.
+        {%- endcomment -%}
+        <div class="kr-addr-outer-wrapper">
+          <div class="kr-addr-container" style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 10;">
+            <p style="font-weight: 600; font-size: 13px; margin: 0; text-align: left;">배송 주소 (Shipping Address)</p>
+            
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="kr-postcode" name="attributes[Postal Code]" placeholder="우편번호" value="{{ cart.attributes['Postal Code'] }}" readonly style="flex: 1; height: 44px; padding: 0 12px; border: 1px solid #d1d1d1; border-radius: var(--inputs-radius, 4px);">
+              <button type="button" id="kr-search-btn" class="button button--secondary" style="height: 44px; min-width: 90px; padding: 0; font-size: 12px; background: #000; color: #fff; border: none;">주소 찾기</button>
+            </div>
+
+            <input type="text" id="kr-address" name="attributes[Base Address]" placeholder="기본 주소" value="{{ cart.attributes['Base Address'] }}" readonly style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid #d1d1d1; border-radius: var(--inputs-radius, 4px);">
+            <input type="text" id="kr-detail" name="attributes[Detail Address]" placeholder="상세주소 입력" value="{{ cart.attributes['Detail Address'] }}" style="width: 100%; height: 44px; padding: 0 12px; border: 1px solid #d1d1d1; border-radius: var(--inputs-radius, 4px);">
+
+            <script>
+              (function() {
+                const setupKrAddr = () => {
+                  const btn = document.getElementById('kr-search-btn');
+                  if (!btn) return;
+                  btn.addEventListener('click', function(e) {
+                    e.preventDefault(); e.stopPropagation();
+                    if (typeof daum === 'undefined') return alert('Loading address service...');
+                    new daum.Postcode({
+                      oncomplete: function(data) {
+                        const addr = data.userSelectedType === 'R' ? data.roadAddress : data.jibunAddress;
+                        document.getElementById('kr-postcode').value = data.zonecode;
+                        document.getElementById('kr-address').value = addr;
+                        fetch('/cart/update.js', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attributes: { "Postal Code": data.zonecode, "Base Address": addr } }) });
+                        document.getElementById('kr-detail').focus();
+                      }
+                    }).open();
+                  });
+                  document.getElementById('kr-detail').addEventListener('blur', function() {
+                    fetch('/cart/update.js', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attributes: { "Detail Address": this.value } }) });
+                  });
+                };
+                if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', setupKrAddr); } else { setupKrAddr(); }
+              })();
+            </script>
+          </div>
+
+          <div class="cart-page__summary">
+            {%- content_for 'block', id: 'cart-page-summary', type: '_cart-summary' -%}
+          </div>
+        </div>
+      {%- endunless -%}
+
+      <div class="cart-page__more-blocks">
+        {%- content_for 'blocks' -%}
+      </div>
+    </div>
+  </div>
+</cart-items-component>
+
+{% stylesheet %}
+  .cart-page {
+    --cart-font-size--2xs: var(--font-size--2xs);
+    --cart-font-size--xs: var(--font-size--xs);
+    --cart-font-size--sm: var(--font-size--sm);
+    --cart-font-size--md: var(--font-size--md);
+    --cart-font-size--lg: var(--font-size--lg);
+    --cart-font-size--xl: var(--font-size--xl);
+    --cart-font-size--2xl: var(--font-size--2xl);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 var(--padding-5xl);
+  }
+
+  .cart-page--empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Style for the new container to ensure it stays in the right column on desktop */
+  @media screen and (min-width: 750px) {
+    .kr-addr-outer-wrapper {
+       grid-column: 2;
+       grid-row: 1 / -1;
+       display: flex;
+       flex-direction: column;
+    }
+  }
+
+  .cart-page__summary {
+    padding-top: var(--padding-xl);
+  }
+
+  @media screen and (min-width: 750px) {
+    .cart-page {
+      grid-template-columns: 1fr min(50vw, var(--sidebar-width));
+      grid-template-rows: min-content min-content 1fr;
+    }
+
+    .cart-page__summary {
+      display: grid;
+      height: 100%;
+      align-self: stretch;
+      grid-template-rows: subgrid;
+      padding-top: 0;
+      position: relative;
+    }
+
+    .section--page-width .cart-page:has(.cart__container--extend) {
+      grid-column: 2 / 4;
+      grid-template-columns: 1fr minmax(
+          var(--sidebar-width),
+          calc((100vw - var(--page-width)) / 2 + var(--sidebar-width))
+        );
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.cart",
+  "blocks": [
+    { "type": "@theme" },
+    { "type": "@app" },
+    { "type": "text" },
+    { "type": "icon" },
+    { "type": "image" },
+    { "type": "button" },
+    { "type": "video" },
+    { "type": "group" },
+    { "type": "spacer" }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}
